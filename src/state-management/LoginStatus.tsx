@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
+import AuthContext from "./contexts/authContext";
 
 const LoginStatus = () => {
-  const [user, setUser] = useState('');
+  const { userName, dispatch } = useContext(AuthContext);
 
-  if (user)
+  if (userName)
     return (
       <>
         <div>
-          <span className="mx-2">{user}</span>
-          <a onClick={() => setUser('')} href="#">
+          <span className="mx-2">{userName}</span>
+          <a onClick={() => dispatch({ type: "Logout" })} href="#">
             Logout
           </a>
         </div>
@@ -16,7 +17,7 @@ const LoginStatus = () => {
     );
   return (
     <div>
-      <a onClick={() => setUser('mosh.hamedani')} href="#">
+      <a onClick={() => dispatch({ type: "Login" })} href="#">
         Login
       </a>
     </div>
