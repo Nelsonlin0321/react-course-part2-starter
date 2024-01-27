@@ -1,12 +1,17 @@
+import { useReducer } from "react";
 import "./App.css";
-import Counter from "./state-management/Counter";
+import HomePage from "./routing/HomePage";
+import NavBar from "./routing/NavBar";
+import TaskContext from "./state-management/contexts/taskcontext";
+import tasksReducer from "./state-management/tasksReducer";
 
 function App() {
+  const [tasks, dispatch] = useReducer(tasksReducer, []);
   return (
-    <>
-      <h1>React Starter Project</h1>
-      <Counter />
-    </>
+    <TaskContext.Provider value={{ tasks, dispatch }}>
+      <NavBar />
+      <HomePage />
+    </TaskContext.Provider>
   );
 }
 
