@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import TaskContext from "./contexts/taskContext";
+import TaskContext from "./contexts/tasksContext";
 
 interface Task {
   id: number;
