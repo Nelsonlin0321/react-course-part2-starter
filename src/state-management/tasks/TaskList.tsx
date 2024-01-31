@@ -1,14 +1,11 @@
 import { useContext } from "react";
-import TaskContext from "./contexts/tasksContext";
+import TaskContext from "./tasksContext";
 
-interface Task {
-  id: number;
-  title: string;
-}
+const useTasks = () => useContext(TaskContext);
 
 const TaskList = () => {
   // const [tasks, setTasks] = useState<Task[]>([]);
-  const { tasks, dispatch } = useContext(TaskContext);
+  const { tasks, dispatch } = useTasks();
 
   return (
     <>
